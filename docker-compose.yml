@@ -1,0 +1,15 @@
+services:
+  mtproto-proxy:
+    build: .
+    container_name: mtproto-proxy
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    command:
+      - "./objs/bin/mtproto-proxy"
+      - "-u"
+      - "nobody"
+      - "-p"
+      - "8888"
+      - "-H"
+      - "443"
